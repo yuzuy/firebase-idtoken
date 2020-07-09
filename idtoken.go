@@ -20,7 +20,9 @@ func Generate(ctx context.Context, client *auth.Client, uid string, opt ...optio
 	}
 
 	resp, err := itkService.Relyingparty.VerifyCustomToken(
-		&identitytoolkit.IdentitytoolkitRelyingpartyVerifyCustomTokenRequest{Token: cToken},
+		&identitytoolkit.IdentitytoolkitRelyingpartyVerifyCustomTokenRequest{
+			Token: cToken, ReturnSecureToken: true,
+		},
 	).Do()
 	if err != nil {
 		return "", err
