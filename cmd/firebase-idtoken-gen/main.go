@@ -8,8 +8,9 @@ import (
 	"os"
 
 	firebase "firebase.google.com/go"
-	idtoken "github.com/yuzuy/firebase-idtoken-gen"
 	"google.golang.org/api/option"
+
+	idtoken "github.com/yuzuy/firebase-idtoken-gen"
 )
 
 var (
