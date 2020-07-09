@@ -1,4 +1,4 @@
-module github.com/yuzuy/firebase-idtoken
+module github.com/yuzuy/firebase-idtoken-gen
 
 go 1.14
 

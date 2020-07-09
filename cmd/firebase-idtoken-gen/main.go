@@ -8,7 +8,7 @@ import (
 	"os"
 
 	firebase "firebase.google.com/go"
-	idtoken "github.com/yuzuy/firebase-idtoken"
+	idtoken "github.com/yuzuy/firebase-idtoken-gen"
 	"google.golang.org/api/option"
 )
 
@@ -69,6 +69,6 @@ func run() {
 }
 
 func report(err error) {
-	fmt.Fprintf(os.Stderr, "firebase-idtoken-gen: %s\n", err)
+	fmt.Fprintf(os.Stderr, "firebase-idtoken-gen-gen: %s\n", err)
 	existCode = 1
 }
