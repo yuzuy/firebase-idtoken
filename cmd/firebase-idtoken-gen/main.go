@@ -70,6 +70,6 @@ func run() {
 }
 
 func report(err error) {
-	fmt.Fprintf(os.Stderr, "firebase-idtoken-gen-gen: %s\n", err)
+	fmt.Fprintf(os.Stderr, "firebase-idtoken-gen: %s\n", err)
 	existCode = 1
 }
