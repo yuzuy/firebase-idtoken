@@ -38,17 +38,24 @@ func run() {
 	var firebaseOpt option.ClientOption
 	var itkOpt option.ClientOption
 	var config *firebase.Config
-	if credFile != nil {
+	if *credFile != "" {
 		firebaseOpt = option.WithCredentialsFile(*credFile)
 	}
-	if apiKey != nil {
+	if *apiKey != "" {
 		itkOpt = option.WithAPIKey(*apiKey)
 	}
-	if projectID != nil {
+	if *projectID != "" {
 		config = &firebase.Config{ProjectID: *projectID}
 	}
 
-	app, err := firebase.NewApp(ctx, config, firebaseOpt)
+	var app *firebase.App
+	var err error
+	if firebaseOpt == nil {
+		app, err = firebase.NewApp(ctx, config)
+	} else {
+		app, err = firebase.NewApp(ctx, config, firebaseOpt)
+	}
+
 	if err != nil {
 		report(err)
 		return
