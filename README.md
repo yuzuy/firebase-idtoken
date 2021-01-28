@@ -3,11 +3,11 @@ A CLI tool and a package to generate firebase authentication id token
 
 # Installation
 ```
-go get -u github.com/firebase-idtoken-gen
+go get -u github.com/yuzuy/firebase-idtoken-gen
 
 or
 
-go get -u github.com/firebase-idtoken-gen/cmd/firebase-idtoken-gen
+go get -u github.com/yuzuy/firebase-idtoken-gen/cmd/firebase-idtoken-gen
 ```
 
 # Usage
