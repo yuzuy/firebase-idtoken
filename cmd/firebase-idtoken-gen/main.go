@@ -19,11 +19,11 @@ var (
 	credFile  = flag.String("credfile", "", "specify your firebase service account credential filepath. by default read from GOOGLE_APPLICATION_CREDENTIALS or FIREBASE_CONFIG")
 )
 
-var existCode int
+var exitCode int
 
 func main() {
 	run()
-	os.Exit(existCode)
+	os.Exit(exitCode)
 }
 
 func run() {
@@ -48,13 +48,7 @@ func run() {
 		config = &firebase.Config{ProjectID: *projectID}
 	}
 
-	var app *firebase.App
-	var err error
-	if firebaseOpt == nil {
-		app, err = firebase.NewApp(ctx, config)
-	} else {
-		app, err = firebase.NewApp(ctx, config, firebaseOpt)
-	}
+	app, err := firebase.NewApp(ctx, config, firebaseOpt)
 
 	if err != nil {
 		report(err)
@@ -78,5 +72,5 @@ func run() {
 
 func report(err error) {
 	fmt.Fprintf(os.Stderr, "firebase-idtoken-gen: %s\n", err)
-	existCode = 1
+	exitCode = 1
 }
