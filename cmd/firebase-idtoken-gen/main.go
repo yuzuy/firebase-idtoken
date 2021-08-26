@@ -48,13 +48,7 @@ func run() {
 		config = &firebase.Config{ProjectID: *projectID}
 	}
 
-	var app *firebase.App
-	var err error
-	if firebaseOpt == nil {
-		app, err = firebase.NewApp(ctx, config)
-	} else {
-		app, err = firebase.NewApp(ctx, config, firebaseOpt)
-	}
+	app, err := firebase.NewApp(ctx, config, firebaseOpt)
 
 	if err != nil {
 		report(err)
